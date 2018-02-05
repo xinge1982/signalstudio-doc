@@ -3,27 +3,27 @@
 # tservice代码结构
 ## signalstudio包中的jetty.service目录：内嵌jetty服务目录
 
-ChangesSystemWebSocket：前端界面通知servlet，负责提供websocket连接
-LoginServlet：用户登录接口
-ServerMain：内嵌jetty容器的配置和启动代码
+- ChangesSystemWebSocket：前端界面通知servlet，负责提供websocket连接
+- LoginServlet：用户登录接口
+- ServerMain：内嵌jetty容器的配置和启动代码
 
 ## signalstudio包中的controller目录：主要HTTP接口所在目录
 
-AnalysisController：分析数据接口
-AuthenticationFilter：接口授权过滤器
-BaseController：接口基础类
-DatabaseController：数据库信息接口
-DeviceController：设备数据接口
-DocsController：文档接口
-IntersectionController：路口接口
-LoginController：登录信息接口
-NameRegionController：统计区域接口
-NameRoadController：统计道路接口
-RoleController：角色接口
-SimulateController：仿真数据接口
-UserController：用户数据接口
-WmsGoogleController：地图背景瓦片接口
-WmsTrafficController：路况渲染瓦片接口
+- AnalysisController：分析数据接口
+- AuthenticationFilter：接口授权过滤器
+- BaseController：接口基础类
+- DatabaseController：数据库信息接口
+- DeviceController：设备数据接口
+- DocsController：文档接口
+- IntersectionController：路口接口
+- LoginController：登录信息接口
+- NameRegionController：统计区域接口
+- NameRoadController：统计道路接口
+- RoleController：角色接口
+- SimulateController：仿真数据接口
+- UserController：用户数据接口
+- WmsGoogleController：地图背景瓦片接口
+- WmsTrafficController：路况渲染瓦片接口
 
 ## signalstudio包中service目录：外部数据服务
 
@@ -125,14 +125,16 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
 取到数据库连接bucket对象后，可以使用它来查询view或者操作文档，一般我们使用这样几个函数来操作数据：
 
 1. **使用文档的key直接获取文档内容：**
+
     JsonDocument document = bucket.get(documentKey);
 
 
 2. **使用JsonObject对象构造新的文档，并添加或覆盖之前的文档：**
+
     JsonDocument newdoc = JsonDocument.create(documenetKey, jsonObject);
     bucket.upsert(newdoc, 3, TimeUnit.SECONDS);
 
-或者使用CouchbaseAccess提供的修改数据函数直接修改数据：
+    或者使用CouchbaseAccess提供的修改数据函数直接修改数据：
 
     JsonDocument documentChanged = CouchbaseAccess.getInstance().upsert(defaultBucketName, document);
 
