@@ -41,9 +41,11 @@ ProgramMain：程序主入口
 
 
 # 文档数据库Couchbase
+下载地址：
+    https://packages.couchbase.com/releases/4.6.2/couchbase-server-enterprise_4.6.2-windows_amd64.exe
 
-https://www.couchbase.com/
 couchbase是基于couchdb及memcached演化而成文档/键值数据库。在本系统中主要负责存储业务数据。
+https://www.couchbase.com/
 
 couchbase是基于bucket及json格式存储数据的nosql数据库，既可以存储json格式文档，也可以存储二进制数据。没条数据都使用唯一的key（键）来唯一标识，使用key来提取某条数据是最快速的方式。虽然couchbase支持使用类似sql的方式查询数据，但我们在实际使用中，并没有利用这一特性，而是使用类似视图的view方式来索引及查询数据的。view相当于一类索引，在view中我们设置一个索引函数map，所有bucket中的文档都会调用此函数，符合函数中设置的过滤条件的数据，将会在此view中保留一份索引数据，我们通过后期来搜索这份索引，能提取符合条件的文档的key，在通过key逐个读取需要的文档。
 
@@ -176,5 +178,6 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
   - map：对文档内容进行后续处理，并返回最终需要的JsonObject。
   - toList：将结果组成列表的形式
   - toBlocking和single：等待所有数据都返回后，继续执行下面的代码
+
 
 
