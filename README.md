@@ -149,7 +149,7 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
 - RxJava用于异步批量处理查询结果
 
 一般的查询过程如下：
-<pre>
+
     ViewQuery viewQuery = ViewQuery.from(viewDoc, view)
             .stale(Stale.FALSE);
     
@@ -167,7 +167,6 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
         return JsonObject.create().put("total", result.totalRows())
                 .put("data", results).toString();
     }
-</pre>
 说明：
 
 - 1-2行是构建查询的view对象，需要提供view的文档名称及名称
@@ -180,57 +179,3 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
   - toBlocking和single：等待所有数据都返回后，继续执行下面的代码
 
 
-
-<style>
-pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 0.7rem;
-  line-height: 1.4;
-  white-space: pre;
-  overflow: auto;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: .5rem;
-  max-height: 800px;
-  font-family: monospace;
-  code {
-    color: inherit;
-    background-color: transparent;
-    padding: 0;
-    display: block;
-  }
-  .line-number {
-    display: block;
-    float: left;
-    margin: 0 1em 0 -1em;
-    border-right: 1px solid #ddd;
-    text-align: right;
-    span {
-      display: block;
-      padding: 0 .5em 0 1em;
-      color: #ccc;
-    }
-  }
-  .cl {
-    display: block;
-    clear: both;
-  }
-}
-</style>
-
-<script>
-(function() {
-  var pre = document.getElementsByTagName('pre'),
-    pl = pre.length;
-  for (var i = 0; i < pl; i++) {
-    pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
-    var num = pre[i].innerHTML.split(/\n/).length;
-    for (var j = 0; j < (num - 1); j++) {
-      var line_num = pre[i].getElementsByTagName('span')[0];
-      line_num.innerHTML += '<span>' + (j + 1) + '</span>';
-    }
-  }
-})();
-</script>
