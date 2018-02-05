@@ -15,9 +15,9 @@ Couchbase安装
 2. parkm为基础服务数据库，存储主要的系统数据，设置时只需要修改名称和内存配置，最低500M即可
 3. maptile为地图服务使用的数据bucket，100M内存即可
 4. 建立bucket后可以使用cbrestore命令恢复之前备份的数据库文件：
-	cbrestore 备份目录 http://localhost:8091 -b parkm -B parkm 
+    cbrestore 备份目录 http://localhost:8091 -b parkm -B parkm 
 5. 备份数据库的方法：（备份的目的目录需要提前创建）
-	cbbackup http://localhost:8091 备份目录 -b parkm
+    cbbackup http://localhost:8091 备份目录 -b parkm
 
 注：备份和恢复数据库的命令，在windows系统上的位置是数据库的安装目录Server/bin下，linux在/opt/couchbase/bin下。
 
