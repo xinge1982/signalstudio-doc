@@ -11,13 +11,13 @@ Couchbase安装
 8. Configure Server：需要设置密码，此密码在登录数据库的网页管理界面及执行后台命令时会使用
 
 安装后设置：
-1. 设置后进入服务界面，进入Data Buckets页面，使用Create Bucket 功能建立两个bucket：parkm和maptile。
-2. parkm为基础服务数据库，存储主要的系统数据，设置时只需要修改名称和内存配置，最低500M即可
+1. 设置后进入服务界面，进入Data Buckets页面，使用Create Bucket 功能建立两个bucket：signalstudio和maptile。
+2. signalstudio为基础服务数据库，存储主要的系统数据，设置时只需要修改名称和内存配置，最低500M即可
 3. maptile为地图服务使用的数据bucket，100M内存即可
 4. 建立bucket后可以使用cbrestore命令恢复之前备份的数据库文件：
-    cbrestore 备份目录 http://localhost:8091 -b parkm -B parkm 
+    cbrestore 备份目录 http://localhost:8091 -b signalstudio -B signalstudio 
 5. 备份数据库的方法：（备份的目的目录需要提前创建）
-    cbbackup http://localhost:8091 备份目录 -b parkm
+    cbbackup http://localhost:8091 备份目录 -b signalstudio
 
 注：备份和恢复数据库的命令，在windows系统上的位置是数据库的安装目录Server/bin下，linux在/opt/couchbase/bin下。
 
