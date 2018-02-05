@@ -135,7 +135,6 @@ bucket可以理解为传统关系型数据库里的一个数据库，我们按�
     bucket.upsert(newdoc, 3, TimeUnit.SECONDS);
 
     或者使用CouchbaseAccess提供的修改数据函数直接修改数据：
-
     JsonDocument documentChanged = CouchbaseAccess.getInstance().upsert(defaultBucketName, document);
 
 
